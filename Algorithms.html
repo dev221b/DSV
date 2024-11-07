@@ -1,0 +1,85 @@
+<html>
+<head>
+<link rel="stylesheet" href="visualPages.css">
+<title>Data Structure Visualization</title>
+<!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+</head>
+<script>
+    window.onload = function() {
+      const paragraphs = document.querySelectorAll('.card p');
+      
+      paragraphs.forEach(function(p) {
+        // Check if the text content of the paragraph doesn't match the sorting algorithms
+        if (!['Bubble Sort', 'Selection Sort', 'Insertion Sort', 'Merge Sort', 'Quick Sort'].includes(p.textContent.trim())) {
+          p.style.fontSize = '1.12em'; // Increase font size for non-matching elements
+        }
+      });
+    };
+  </script>
+  
+<body>
+
+<div class="container">
+  <div class="header"><h1>Data Structure Visualizations</h1></div>
+
+  <div class="content">
+    <div class="card-grid">
+      <div class="card">
+        <h2>Basics</h2>
+        <hr>
+        <p><a href="StackArray.html">Stack: Array Implementation</a></p>
+        <p><a href="StackLL.html">Stack: Linked List Implementation</a></p>
+        <p><a href="QueueArray.html">Queues: Array Implementation</a></p>
+        <p><a href="QueueLL.html">Queues: Linked List Implementation</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Recursion</h2>
+        <hr>
+        <p><a href="RecFact.html">Factorial</a></p>
+        <p><a href="RecReverse.html">Reversing a String</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Trees</h2>
+        <hr>
+        <p><a href="Search.html">Binary and Linear Search</a></p>
+        <p><a href="BST.html">Binary Search Trees</a></p>
+        <p><a href="BTree.html">B Trees</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Sorting</h2>
+        <hr>
+        <p><a href="ComparisonSort.html">Sorting Algorithms</a></p>
+        <p>Bubble Sort</p>
+        <p>Selection Sort</p>
+        <p>Insertion Sort</p>
+        <p>Merge Sort</p>
+        <p>Quick Sort</p>
+        <p><a href="HeapSort.html">Heap Sort</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Graph Algorithms</h2>
+        <hr>
+        <p><a href="BFS.html">Breadth-First Search</a></p>
+        <p><a href="DFS.html">Depth-First Search</a></p>
+        <p><a href="Dijkstra.html">Dijkstra's Shortest Path</a></p>
+        <p><a href="Prim.html">Prim's Minimum Cost Spanning Tree</a></p>
+        <p><a href="Kruskal.html">Kruskal's MST</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Dynamic Programming</h2>
+        <hr>
+        <p><a href="DPFib.html">Calculating nth Fibonacci number</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"></div>
+</div>
+
+</body>
+</html>
