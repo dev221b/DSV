@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorial Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        .stack-container {
+            border: 2px solid #4caf50;
+            width: 300px;
+            height: 400px;
+            overflow-y: auto;
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 10px;
+        }
+
+        .call {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #e0f7e0;
+            border-radius: 5px;
+            border: 1px solid #4caf50;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 120px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Factorial Visualization</h1>
+
+    <div class="stack-container" id="stackContainer">
+        Stack will be shown here
+    </div>
+
+    <div class="controls">
+        <input type="text" id="factorialInput" placeholder="Enter a number" />
+        <button onclick="visualizeFactorial()">Visualize</button>
+    </div>
+
+    <script>
+        const stackContainer = document.getElementById("stackContainer");
+        const factorialInput = document.getElementById("factorialInput");
+
+        // Function to visualize the factorial process using a stack-like display
+        async function visualizeFactorial() {
+            const num = parseInt(factorialInput.value.trim());
+            if (isNaN(num) || num < 0) {
+                alert("Please enter a valid non-negative integer.");
+                return;
+            }
+
+            stackContainer.innerHTML = ""; // Clear previous stack visualization
+
+            // Recursive function to compute factorial and visualize steps
+            async function factorial(n) {
+                if (n === 0 || n === 1) {
+                    pushToStack(`${n}! = 1 (Base case)`);
+                    await delay(1000);
+                    popFromStack();
+                    return 1;
+                }
+
+                pushToStack(`Calling: ${n} * factorial(${n - 1})`);
+                await delay(1000);
+
+                const result = n * (await factorial(n - 1));
+
+                pushToStack(`Result: ${n}! = ${result}`);
+                await delay(1000);
+                popFromStack();
+
+                return result;
+            }
+
+            const finalResult = await factorial(num);
+            alert(`Final Result: ${num}! = ${finalResult}`);
+        }
+
+        // Function to add a call to the stack
+        function pushToStack(content) {
+            const callElement = document.createElement("div");
+            callElement.className = "call";
+            callElement.textContent = content;
+            stackContainer.appendChild(callElement);
+        }
+
+        // Function to remove a call from the stack
+        function popFromStack() {
+            if (stackContainer.lastChild) {
+                stackContainer.removeChild(stackContainer.lastChild);
+            }
+        }
+
+        // Function to introduce delay for better visualization
+        function delay(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+        }
+    </script>
+</body>
+</html>

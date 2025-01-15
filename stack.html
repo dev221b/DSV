@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack Operations Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        .stack-container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            border: 2px solid #4caf50;
+            width: 200px;
+            height: 300px;
+            margin: 20px;
+            padding: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .stack-element {
+            width: 100%;
+            height: 40px;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4caf50;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            width: 120px;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stack Operations Visualization</h1>
+
+    <div class="stack-container" id="stackContainer"></div>
+
+    <div class="controls">
+        <input type="text" id="stackInput" placeholder="Enter value" />
+        <button onclick="pushElement()">Push</button>
+        <button onclick="popElement()">Pop</button>
+    </div>
+
+    <script>
+        const stackContainer = document.getElementById("stackContainer");
+        const stackInput = document.getElementById("stackInput");
+        const stack = [];
+
+        // Function to push an element to the stack
+        function pushElement() {
+            const value = stackInput.value.trim();
+            if (value === "") {
+                alert("Please enter a value to push");
+                return;
+            }
+
+            if (stack.length >= 6) {
+                alert("Stack overflow! Cannot push more elements.");
+                return;
+            }
+
+            stack.push(value);
+            const element = document.createElement("div");
+            element.classList.add("stack-element");
+            element.innerText = value;
+            stackContainer.appendChild(element);
+            stackInput.value = "";
+        }
+
+        // Function to pop an element from the stack
+        function popElement() {
+            if (stack.length === 0) {
+                alert("Stack underflow! No elements to pop.");
+                return;
+            }
+
+            stack.pop();
+            stackContainer.removeChild(stackContainer.lastChild);
+        }
+    </script>
+</body>
+</html>

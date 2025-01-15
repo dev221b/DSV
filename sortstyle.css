@@ -1,0 +1,139 @@
+.dark-background {
+    background-color: #4caf50;
+}
+
+.text-color {
+    color: #ffffff;
+}
+
+body {
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    padding: 10px 20px;
+}
+
+.flex-container {
+    margin: 5px auto 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 90%;
+    justify-content: center;
+    align-items: flex-end;
+    transition: 2s all ease;
+    padding-top: 20px;
+}
+
+.flex-item {
+    background: #4caf50;
+    border: 1px solid black;
+    width: 14px; /* Slightly increased bar width */
+    transition: 0.1s all ease;
+}
+
+#input-panel {
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.range-input {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.range-input input {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 2px;
+    background-color: #a3b4c1;
+    border-radius: 5px;
+}
+
+.range-input input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border: 2px solid #000;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.range-input .label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.btn-outline-info {
+    color: #ffffff;
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.btn-outline-info:hover {
+    background-color: #4caf4fb3;
+    border-color: #4caf50;
+}
+
+.btn-outline-primary {
+    color: #ffffff;
+    background-color: #4c84af;
+    border-color: #4c84af;
+}
+
+.btn-outline-secondary {
+    color: #ffffff;
+    background-color: #828282;
+    border-color: #828282;
+}
+
+/* Add space between button groups */
+#control-panel {
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between button groups */
+}
+
+/* Add space around each button */
+#control-panel .btn-group-vertical button {
+    margin-bottom: 10px; /* Space between buttons in the same group */
+    padding: 5px 10px;  /* Increase padding for better clickability */
+}
+
+/* Set consistent width for all buttons */
+#control-panel .btn-group-vertical button {
+    width: 150px;
+}
+
+/* Optional: General button hover effect */
+.btn-outline-info:hover,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover {
+    background-color: #4caf8ea5;
+    border-color: #4caf8ea5;
+
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4a90e2;
+    color: #ffffff;
+}
